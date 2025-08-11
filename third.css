@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#galaxy {
+    position: fixed;
+    z-index: -2;
+}
+
+#effect {
+    mix-blend-mode: screen;
+    opacity: 60%;
+    pointer-events: none;
+    position: fixed;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #galaxy,
+    #effect {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #galaxy,
+    #effect {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (max-width: 310px) {
+    #galaxy,
+    #effect {
+        display: none;
+    }
+
+    body {
+        background-size: cover;
+    }
+}
+
+:root {
+    --width-circle: 150vw;
+    --radius: calc(100vw / 6);
+}
+
+.slider {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0;
+}
+
+.slider .list {
+    position: absolute;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: transform 0.8s;
+}
+
+.slider .list .item {
+    width: calc(var(--radius) * 2);
+    text-align: center;
+    transform: rotate(45deg);
+    transition: transform 1s;
+}
+
+.slider .list .item.active {
+    transform: rotate(0deg);
+}
+
+.slider .list .item img {
+    width: 90%;
+    filter: drop-shadow(0 0 20px #000);
+}
+
+/* 🆕 Buttons top me le gaye */
+#prev,
+#next {
+    position: absolute;
+    top: 330px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee5;
+    border: 1px solid #eee9;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 15;
+    transition: 0.3s ease;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+#prev:hover, #next:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+}
+
+/* 🔧 Mobile ke liye optimize */
+@media (max-width: 768px) {
+    #prev,
+    #next {
+        top: 450px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Extra Modern Effects --- */
+
+/* Glass effect for slider background */
+/* .slider .list {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(0px);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+} */
+
+/* Image hover glow */
+.slider .list .item img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.slider .list .item img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px cyan);
+}
+
+/* Fade-in animation when slider loads */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.slider {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Mobile spacing tweak */
+@media (max-width: 768px) {
+    .slider .list {
+        padding: 0.5rem 1rem;
+        gap: 1rem;
+    }
+    .slider .list .item img {
+        width: 80%;
+    }
+}
+
