@@ -36,13 +36,10 @@
 }
 
 /* Tablet */
-@media (max-width: 1550px){
-    .intro {
-         object-fit: cover;
-    }
+@media (max-width: 1635px){
   #button {
         bottom: 170px;
-        height: 22px;
+        height: 30px;
     }
 } 
 @media (max-width: 768px) {
@@ -52,17 +49,22 @@
 
     #button {
         bottom: 160px;
-        height: 25px;
+        height: 30px;
     }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
+  .intro{
+    object-fit: cover;
+  }
     #button {
         bottom: 150px;
-        height: 22px;
+        height: 25px;
     }
 }
+
+
 
 
 
