@@ -1,65 +1,64 @@
-*{
-    margin: auto;
+/* Reset defaults */
+* {
+    margin: 0;
     padding: 0;
-    /* overflow:hidden ; */
+    box-sizing: border-box;
 }
-.intro{
+
+/* Fullscreen video background */
+.intro {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    object-fit:fill;
+    object-fit: fill;
     z-index: -1;
 }
-/* #startbutton{
-    position: relative;
-    color: whitesmoke;
-    top: 520px;
-    left: 670px;
-    font-size: medium;
-    text-decoration: none;
-    margin: 0 auto;
-    z-index: 1 ;
-    font-family: bitsss;
-}
-@font-face {
-    font-family: bitsss;
-    src: url(vi/8-bit-pusab.ttf);
-} */
- #button{
-    padding: 0%;
-    margin: 0%;
+
+/* Start button centered horizontally, fixed from bottom */
+#button {
     height: 30px;
     width: auto;
-    display:inline-block;
-    position: absolute;
+    position: fixed;
     bottom: 170px;
-    right: 600px;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer; 
-    display: none; 
-    animation: blink 2s infinite ;
- }
+    display: none; /* initially hidden */
+    animation: blink 2s infinite;
+}
+
+/* Blink animation */
 @keyframes blink {
-    0% {opacity: 1;}
-    1% {opacity: 0;}
-    0% {opacity: 1;}
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
-/* Mobile optimization for intro video & button */
+
+/* Tablet */
+/* @media (max-width: 1635px){
+  #button {
+        bottom: 70px;
+        height: 22px;
+    }
+}  */
 @media (max-width: 768px) {
-  .intro {
-    object-fit: cover;
-  }
+    .intro {
+        object-fit: cover;
+    }
 
-  #button {
-    bottom: 80px;
-    right: 50%;
-    transform: translateX(50%);
-    height: 25px;
-  }
+    #button {
+        bottom: 160px;
+        height: 25px;
+    }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
-  #button {
-    bottom: 50px;
-    height: 22px;
-  }
+    #button {
+        bottom: 150px;
+        height: 22px;
+    }
 }
+
+
