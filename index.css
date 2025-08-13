@@ -36,12 +36,15 @@
 }
 
 /* Tablet */
-/* @media (max-width: 1635px){
+@media (max-width: 1550px){
+    .intro {
+         object-fit: cover;
+    }
   #button {
-        bottom: 70px;
+        bottom: 170px;
         height: 22px;
     }
-}  */
+} 
 @media (max-width: 768px) {
     .intro {
         object-fit: cover;
@@ -60,5 +63,6 @@
         height: 22px;
     }
 }
+
 
 
