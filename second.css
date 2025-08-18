@@ -125,3 +125,14 @@ body {
     width: 100%;
   }
 }
+@font-face {
+  font-family:'8bit';
+ src: url('YksDog-website/vi/8-bit-pusab.ttf');
+}
+.select{
+   font-family: '8bit', sans-serif;
+   font-size: 0.6rem;
+
+}
+
+
