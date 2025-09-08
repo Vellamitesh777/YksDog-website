@@ -2,14 +2,19 @@ body {
   background: #ccc;
   font-family: 'Verdana', sans-serif;
   padding: 20px;
+  min-height: 100vh;
 }
 
 .window {
-  max-width: 800px;
+  max-width: 700px; /* ⬅️ Width reduced from 800px to 700px */
+  width: 100%;
+  min-height: 90vh; /* ⬅️ Height increased */
   margin: auto;
   border: 2px solid #000;
   background: #eee;
   box-shadow: 4px 4px #999;
+  display: flex;
+  flex-direction: column;
 }
 
 .title-bar {
@@ -53,6 +58,7 @@ body {
 
 .content {
   display: flex;
+  flex: 1;
   padding: 10px;
   gap: 10px;
 }
@@ -120,6 +126,7 @@ body {
   border: 1px solid #000;
   font-size: 13px;
 }
+
 #galaxy {
   position: fixed;
   top: 0;
@@ -129,6 +136,7 @@ body {
   object-fit: cover;
   z-index: -1;
 }
+
 #effect {
   position: fixed;
   top: 0;
@@ -141,7 +149,8 @@ body {
   pointer-events: none;
   z-index: 0;
 }
-/* Responsive compact styles */
+
+/* ✅ Mobile Responsive Styles */
 @media (max-width: 768px) {
   body {
     padding: 5px;
@@ -150,6 +159,7 @@ body {
   .window {
     width: 100%;
     max-width: 100%;
+    min-height: auto;
   }
 
   .content {
@@ -238,3 +248,56 @@ body {
     width: 80px;
   }
 }
+
+/* ✅ iPad-Only Fix: Full Width + Adjusted Layout */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .window {
+    max-width: 100% !important;
+    width: 100%;
+    min-height: 95vh;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .boxes,
+  .topics {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .left-panel img {
+    width: 100px;
+  }
+
+  .info,
+  .box,
+  .topic {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .right-panel {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .follow {
+    font-size: 13px;
+    padding: 5px;
+  }
+}
+
