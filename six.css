@@ -1,0 +1,108 @@
+/* 🌐 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* 🌌 Galaxy Background */
+#galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* 📼 VHS Overlay */
+#effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none; /* Prevent unnecessary processing */
+}
+
+/* 🖼️ Gallery Grid */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+  contain: content; /* 🧠 Performance boost */
+}
+
+/* 🖼️ Thumbnail */
+.thumb {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  will-change: transform; /* 🚀 GPU hint */
+}
+
+/* 📷 Thumbnail Image */
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 🔍 Hover Zoom */
+.thumb:hover {
+  transform: scale(1.08);
+}
+
+/* 🖼️ Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🖼️ Modal Image */
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+/* ❌ Close Button */
+.closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
