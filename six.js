@@ -39,3 +39,51 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbs = document.querySelectorAll('.thumb');
+
+  thumbs.forEach((thumb) => {
+    thumb.classList.add('skeleton');
+    const img = thumb.querySelector('img');
+
+    if (img.complete) {
+      // Already loaded (from cache)
+      thumb.classList.remove('skeleton');
+      img.style.opacity = 1;
+    } else {
+      img.addEventListener('load', () => {
+        thumb.classList.remove('skeleton');
+        img.style.opacity = 1;
+      });
+
+      img.addEventListener('error', () => {
+        thumb.classList.remove('skeleton'); // Still remove skeleton
+        thumb.innerHTML = "<p style='color:white;text-align:center;'>⚠️ Failed</p>";
+      });
+    }
+  });
+
+  // Optional: Modal logic
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".closeBtn");
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const imgSrc = thumb.querySelector("img").src;
+      modalImg.src = imgSrc;
+      modal.style.display = "flex";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
