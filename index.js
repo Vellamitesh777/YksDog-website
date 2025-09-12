@@ -4,3 +4,8 @@ setTimeout(function(){
 
 }, 3350);
 
+   window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+});
+
