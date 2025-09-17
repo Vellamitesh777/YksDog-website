@@ -9,3 +9,6 @@ setTimeout(function(){
   document.getElementById("content").style.display = "block";
 });
 
+ if (window.innerWidth <= 430) {
+    window.location.href = "second.html";
+  }
